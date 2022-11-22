@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:zoom_clone/screens/history_meeting_screen.dart';
+import 'package:zoom_clone/screens/meeting_screen.dart';
 import 'package:zoom_clone/utils/colors.dart';
 import 'package:zoom_clone/widgets/home_meeting_button.dart';
 
@@ -16,6 +18,13 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {});
   }
 
+  List<Widget> pages = [
+    MeetingScreen(),
+    const HistoryMeetingScreen(),
+    const Text("Contacts 📇"),
+    const Text("Settings ⚙️"),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,46 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text("Meet & Chat"),
         backgroundColor: bgColor,
       ),
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              HomeMeetingButton(
-                onPressed: () {},
-                icon: Icons.videocam,
-                text: "New Meeting",
-              ),
-              HomeMeetingButton(
-                onPressed: () {},
-                icon: Icons.add_box_rounded,
-                text: "Join Meeting",
-              ),
-              HomeMeetingButton(
-                onPressed: () {},
-                icon: Icons.calendar_today,
-                text: "Schedule",
-              ),
-              HomeMeetingButton(
-                onPressed: () {},
-                icon: Icons.arrow_upward_rounded,
-                text: "Share Screen",
-              ),
-            ],
-          ),
-          const Expanded(
-            child: Center(
-              child: Text(
-                "Create/Join Meetings with just a Click!",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          )
-        ],
-      ),
+      body: pages[_page],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: footerColor,
         selectedItemColor: Colors.white,
