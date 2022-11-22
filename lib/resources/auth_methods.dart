@@ -48,4 +48,12 @@ class AuthMethods {
     }
     return res;
   }
+
+  void logout() async {
+    try {
+      _auth.signOut();
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
 }

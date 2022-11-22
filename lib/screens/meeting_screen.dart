@@ -44,17 +44,17 @@ class MeetingScreen extends StatelessWidget {
               icon: Icons.add_box_rounded,
               text: "Join Meeting",
             ),
-            HomeMeetingButton(
-              onPressed: () {},
-              icon: Icons.calendar_today,
-              text: "Schedule",
-            ),
-            HomeMeetingButton(
-              onPressed: () {},
-              icon: Icons.arrow_upward_rounded,
-              text: "Share Screen",
-            ),
-          ],
+            // HomeMeetingButton(
+            //   onPressed: () {},
+            //   icon: Icons.calendar_today,
+            //   text: "Schedule",
+            // ),
+            // HomeMeetingButton(
+            //   onPressed: () {},
+            //   icon: Icons.arrow_upward_rounded,
+            //   text: "Share Screen",
+            // ),
+          ], 
         ),
         const Expanded(
           child: Center(

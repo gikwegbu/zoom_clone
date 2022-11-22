@@ -24,7 +24,7 @@ dependencies:
   google_sign_in: ^5.4.2
   cupertino_icons: ^1.0.2
   jitsi_meet:
-  # jitsi_meet: ^4.0.0
+  intl:
 
 dependency_overrides:
   firebase_core_platform_interface: 4.5.1

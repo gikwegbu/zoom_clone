@@ -30,12 +30,24 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
   }
 
   void _joinMeeting() {
+    if (meetingIdController.text.isEmpty) {
+      return sM("Room ID can't be empty");
+    }
+    if (nameController.text.isEmpty) {
+      return sM("Name field can't be empty");
+    }
     _jitsiMeetmethods.createMeeting(
-      roomName: meetingIdController .text,
+      roomName: meetingIdController.text,
       isAudioMuted: isAudioMuted,
       isVideoMuted: isVideoMuted,
       meetingSubject: '',
       username: nameController.text,
+    );
+  }
+
+  void sM(content) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(content)),
     );
   }
 
@@ -102,13 +114,15 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
           ),
           const SizedBox(height: 20),
           MeetingOption(
-              text: "Audio Settings",
-              isMute: isAudioMuted,
-              onChange: onAudioMuted),
+            text: "Allow Audio",
+            isMute: isAudioMuted,
+            onChange: onAudioMuted,
+          ),
           MeetingOption(
-              text: "Video Seetings ",
-              isMute: isAudioMuted,
-              onChange: onVideoMuted),
+            text: "Allow Video ",
+            isMute: isVideoMuted,
+            onChange: onVideoMuted,
+          ),
         ],
       ),
     );
