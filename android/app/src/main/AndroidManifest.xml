@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
    <application
         tools:replace="android:label"
-        android:label="zoom_clone"
+        android:label="Zed Clone"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"
