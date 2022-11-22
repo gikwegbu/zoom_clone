@@ -2,23 +2,29 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:zoom_clone/resources/jitsi_meet_methods.dart';
+import 'package:zoom_clone/screens/video_call_screen.dart';
 import 'package:zoom_clone/widgets/home_meeting_button.dart';
 
 class MeetingScreen extends StatelessWidget {
   MeetingScreen({Key? key}) : super(key: key);
 
   final JistsiMeetMethods _jistsiMeetMethods = JistsiMeetMethods();
+
   void createNewMeeting() async {
     var rand = Random();
     String roomName = (rand.nextInt(10000000) + 10000000).toString();
     // This or, pop up a modal, to allow the creator add the name of the Room
     String meetingSubject = "Learning Flutter with Me";
-     _jistsiMeetMethods.createMeeting(
+    _jistsiMeetMethods.createMeeting(
       roomName: roomName,
       isAudioMuted: true,
       isVideoMuted: true,
       meetingSubject: meetingSubject,
     );
+  }
+
+  void joinMeeting(BuildContext context) {
+    Navigator.pushNamed(context, VideoCallScreen.routeName);
   }
 
   @override
@@ -34,7 +40,7 @@ class MeetingScreen extends StatelessWidget {
               text: "New Meeting",
             ),
             HomeMeetingButton(
-              onPressed: () {},
+              onPressed: () => joinMeeting(context),
               icon: Icons.add_box_rounded,
               text: "Join Meeting",
             ),

@@ -5,6 +5,8 @@ import 'package:zoom_clone/widgets/custom_button.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
+  static const routeName = '/login';
+
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
