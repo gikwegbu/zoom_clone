@@ -40,7 +40,7 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
       roomName: meetingIdController.text,
       isAudioMuted: isAudioMuted,
       isVideoMuted: isVideoMuted,
-      meetingSubject: '',
+      meetingSubject: '****',
       username: nameController.text,
     );
   }

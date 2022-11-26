@@ -31,7 +31,7 @@ class JistsiMeetMethods {
         ..videoMuted = isVideoMuted;
 
       debugPrint("JitsiMeetingOptions: $options");
-      _firestoreMethods.addtomeetingHistory(roomName);
+      _firestoreMethods.addToMeetingHistory(roomName, meetingSubject);
       await JitsiMeet.joinMeeting(options);
     } catch (e) {
       debugPrint(e.toString());

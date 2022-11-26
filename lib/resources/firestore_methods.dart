@@ -12,13 +12,31 @@ class FirestoreMethods {
       .collection('meetings')
       .snapshots();
 
-  void addtomeetingHistory(String meetingName) async {
+  void addToMeetingHistory(String meetingName, String meetingSubject) async {
     try {
       await _firestore
           .collection('users')
           .doc(_auth.currentUser!.uid)
           .collection('meetings')
-          .add({'meetingName': meetingName, 'createdAt': DateTime.now()});
+          .add({
+        'meetingName': meetingName,
+        'meetingSubject': meetingSubject,
+        'createdAt': DateTime.now()
+      });
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  void wipeMeetingHistory() async {
+    try {
+      var db = _firestore.collection('users').doc(_auth.currentUser!.uid);
+
+      db.collection('meetings').get().then((querySnapshot) {
+        for (var doc in querySnapshot.docs) {
+          db.collection('meetings').doc(doc.id).delete();
+        }
+      });
     } catch (e) {
       debugPrint(e.toString());
     }
