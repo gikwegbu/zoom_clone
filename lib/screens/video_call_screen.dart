@@ -3,6 +3,7 @@ import 'package:jitsi_meet/jitsi_meet.dart';
 import 'package:zoom_clone/resources/auth_methods.dart';
 import 'package:zoom_clone/resources/jitsi_meet_methods.dart';
 import 'package:zoom_clone/utils/colors.dart';
+import 'package:zoom_clone/widgets/home_meeting_button.dart';
 import 'package:zoom_clone/widgets/meeting_option.dart';
 
 class VideoCallScreen extends StatefulWidget {
@@ -100,17 +101,10 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
             ),
           ),
           const SizedBox(height: 20),
-          InkWell(
-            onTap: _joinMeeting,
-            child: const Padding(
-              padding: EdgeInsets.all(8),
-              child: Text(
-                "Join",
-                style: TextStyle(
-                  fontSize: 16,
-                ),
-              ),
-            ),
+          HomeMeetingButton(
+            onPressed: _joinMeeting,
+            icon: Icons.add_box_rounded,
+            text: "Join Meeting",
           ),
           const SizedBox(height: 20),
           MeetingOption(

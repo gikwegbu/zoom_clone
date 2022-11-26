@@ -20,7 +20,6 @@ class _MeetingScreenState extends State<MeetingScreen> {
   void createNewMeeting() async {
     var rand = Random();
     String roomName = (rand.nextInt(10000000) + 10000000).toString();
-    // This or, pop up a modal, to allow the creator add the name of the Room
     _jistsiMeetMethods.createMeeting(
       roomName: roomName,
       isAudioMuted: true,

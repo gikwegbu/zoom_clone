@@ -31,7 +31,6 @@ class _HomeScreenState extends State<HomeScreen> {
     // CustomButton(text: 'Logout', press: () => AuthMethods().logout())
   ];
   void _wipeFirestoreMeetingData() {
-    // Show a ScaffoldMessenger.of(context).snackbar(Snackbar)
     _firestoreMethods.wipeMeetingHistory();
   }
 
