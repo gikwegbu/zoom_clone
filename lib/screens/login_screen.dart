@@ -30,7 +30,6 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 38.0),
-            // child: Image.asset("assets/images/onboarding.jpeg"),
             child: Lottie.asset(
               'assets/animations/startMeeting.json',
               fit: BoxFit.contain,
