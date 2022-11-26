@@ -8,8 +8,9 @@ class HistoryMeetingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    FirestoreMethods _firestoreMethods = FirestoreMethods();
     return StreamBuilder(
-      stream: FirestoreMethods().meetingsHistory,
+      stream: _firestoreMethods.meetingsHistory,
       builder: ((context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(
@@ -52,7 +53,19 @@ class HistoryMeetingScreen extends StatelessWidget {
                   ],
                 ),
                 subtitle: Text(
-                    "Joined on ${DateFormat.yMMMd().format((snapshot.data! as dynamic).docs[index]['createdAt'].toDate())}"),
+                  "Joined on ${DateFormat.yMMMd().format((snapshot.data! as dynamic).docs[index]['createdAt'].toDate())}",
+                ),
+                trailing: IconButton(
+                  splashRadius: 30,
+                  onPressed: () {
+                    _firestoreMethods.deleteSingleMeetingHistory(
+                        (snapshot.data! as dynamic).docs[index].id);
+                  },
+                  icon: const Icon(
+                    Icons.delete_forever,
+                    color: Colors.red,
+                  ),
+                ),
               ),
             ),
           ),

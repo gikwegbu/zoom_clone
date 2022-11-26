@@ -42,5 +42,16 @@ class FirestoreMethods {
     }
   }
 
-  
+  void deleteSingleMeetingHistory(String id) async {
+    try {
+      _firestore
+          .collection('users')
+          .doc(_auth.currentUser!.uid)
+          .collection('meetings')
+          .doc(id)
+          .delete();
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
 }
