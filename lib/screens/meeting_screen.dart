@@ -51,6 +51,7 @@ class _MeetingScreenState extends State<MeetingScreen> {
             TextButton(
               child: const Text('Continue'),
               onPressed: () {
+                if (meetingSubject.isEmpty) return;
                 createNewMeeting();
                 Navigator.pop(context);
                 setState(() {});
