@@ -16,30 +16,27 @@ class HomeMeetingButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onPressed,
-      child: Column(
-        children: [
-          Container(
-            width: 60,
-            height: 60,
-            decoration: BoxDecoration(
-              color: btnColor,
-              borderRadius: BorderRadius.circular(16),
-              boxShadow: [
-                BoxShadow(
-                  blurRadius: 10,
-                  color: Colors.black.withOpacity(0.06),
-                  offset: const Offset(0, 4),
-                ),
-              ],
-            ),
-            child: Icon(
-              icon,
-              size: 30,
-            ),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        margin: const EdgeInsets.only(bottom: 20),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(90),
+          border: Border.all(
+            color: Colors.white,
+            width: 1,
           ),
-          const SizedBox(height: 10 ,),
-          Text(text, style: const TextStyle(color: Colors.grey),)
-        ],
+        ),
+        child: TextButton.icon(
+          onPressed: onPressed,
+          icon: Icon(
+            icon,
+            color: Colors.white,
+          ),
+          label: Text(
+            text,
+            style: const TextStyle(color: Colors.white),
+          ),
+        ),
       ),
     );
   }

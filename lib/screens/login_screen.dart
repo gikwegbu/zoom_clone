@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:zoom_clone/resources/auth_methods.dart';
 import 'package:zoom_clone/widgets/custom_button.dart';
 
@@ -21,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text(
-            "Start or join a meeting",
+            "Friendly Conference App",
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
@@ -29,10 +30,14 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 38.0),
-            child: Image.asset("assets/images/onboarding.jpeg"),
+            // child: Image.asset("assets/images/onboarding.jpeg"),
+            child: Lottie.asset(
+              'assets/animations/startMeeting.json',
+              fit: BoxFit.contain,
+            ),
           ),
           CustomButton(
-            text: "Google Sign in",
+            text: "Sign in with Google",
             press: () async {
               bool res = await _authMethods.signInWithGoogle(context);
               if (res) {

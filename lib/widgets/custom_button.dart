@@ -22,12 +22,14 @@ class CustomButton extends StatelessWidget {
           style: const TextStyle(fontSize: 17),
         ),
         style: ElevatedButton.styleFrom(
-          primary: btnColor,
+          primary: Colors.transparent,
+          // primary: btnColor,
           minimumSize: const Size(double.infinity, 50),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
-            side: const BorderSide(color: btnColor),
-          )
+            // side: const BorderSide(color: btnColor),
+            side: const BorderSide(color: Colors.white),
+          ),
         ),
       ),
     );

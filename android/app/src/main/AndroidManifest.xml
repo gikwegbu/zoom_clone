@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.zoom_clone"
+    package="app.netlify.gikwegbu.zed_clone"
     xmlns:tools="http://schemas.android.com/tools">
    <application
         tools:replace="android:label"

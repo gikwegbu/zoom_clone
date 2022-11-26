@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:zoom_clone/resources/auth_methods.dart';
 import 'package:zoom_clone/screens/history_meeting_screen.dart';
 import 'package:zoom_clone/screens/meeting_screen.dart';
+import 'package:zoom_clone/screens/settings_screen.dart';
 import 'package:zoom_clone/utils/colors.dart';
 import 'package:zoom_clone/widgets/custom_button.dart';
 
@@ -14,16 +15,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _page = 0;
+  int _page = 1;
   onPageChanged(int page) {
     _page = page;
     setState(() {});
   }
 
   List<Widget> pages = [
-    MeetingScreen(),
     const HistoryMeetingScreen(),
-    CustomButton(text: 'Logout', press: () => AuthMethods().logout())
+    MeetingScreen(),
+    const SettingsScreen(),
+    // CustomButton(text: 'Logout', press: () => AuthMethods().logout())
   ];
 
   @override
@@ -32,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        title: const Text("Meet & Chat"),
+        title: const Text("Zed Clone"),
         backgroundColor: bgColor,
       ),
       body: pages[_page],
@@ -46,17 +48,13 @@ class _HomeScreenState extends State<HomeScreen> {
         // unselectedFontSize: 14,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.comment_bank),
-            label: "Meet & Chat",
+            icon: Icon(Icons.pending_actions),
+            label: "History",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.lock_clock),
-            label: "Meetings",
+            icon: Icon(Icons.video_call),
+            label: "Home",
           ),
-          // BottomNavigationBarItem(
-          //   icon: Icon(Icons.people),
-          //   label: "Contacts",
-          // ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings_outlined),
             label: "Settings",

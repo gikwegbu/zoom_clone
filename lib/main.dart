@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Zoom Clone',
+      title: 'Zed Clone',
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: bgColor,
       ),

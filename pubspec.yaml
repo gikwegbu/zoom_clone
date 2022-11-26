@@ -27,6 +27,7 @@ dependencies:
   intl:
   flutter_launcher_icons: "^0.9.2"
   # flutter_native_splash: ^2.1.0
+  lottie: ^1.3.0
 
 
 
@@ -43,6 +44,7 @@ dependency_overrides:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  change_app_package_name: ^1.1.0
 
   flutter_lints: ^1.0.0
 
@@ -52,6 +54,10 @@ flutter:
 
   assets:
       - assets/images/onboarding.jpeg
+      - assets/animations/meeting.json
+      - assets/animations/logout.json
+      - assets/animations/startMeeting.json
+      - assets/animations/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
